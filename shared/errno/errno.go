@@ -1,6 +1,7 @@
 package errno
 
 import (
+	"errors"
 	"fmt"
 
 	"github.com/geiqin/gaiakit/kitex_gen/errno"
@@ -58,3 +59,15 @@ var (
 	DirtyData          = NewErrNo(int64(errno.Err_DirtyData), "dirty data")
 	TradeSrcErr        = NewErrNo(int64(errno.Err_TradeSrvErr), "rpc trade service error")
 )
+
+// ConvertErr convert error to Errno
+func ConvertErr(err error) ErrNo {
+	Err := ErrNo{}
+	if errors.As(err, &Err) {
+		return Err
+	}
+
+	s := ServiceErr
+	s.ErrMsg = err.Error()
+	return s
+}
