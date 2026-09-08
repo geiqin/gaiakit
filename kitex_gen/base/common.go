@@ -108,12 +108,12 @@ func (p *NilResponse) String() string {
 var fieldIDToName_NilResponse = map[int16]string{}
 
 type Pager struct {
-	Paged     int32 `thrift:"paged,1" frugal:"1,default,i32" json:"paged"`
-	Total     int32 `thrift:"total,2" frugal:"2,default,i32" json:"total"`
-	PageCount int32 `thrift:"page_count,3" frugal:"3,default,i32" json:"page_count"`
-	PageSize  int32 `thrift:"page_size,4" frugal:"4,default,i32" json:"page_size"`
-	PrevPage  int32 `thrift:"prev_page,5" frugal:"5,default,i32" json:"prev_page"`
-	LastPage  int32 `thrift:"last_page,6" frugal:"6,default,i32" json:"last_page"`
+	Paged     int64 `thrift:"paged,1" frugal:"1,default,i64" json:"paged"`
+	Total     int64 `thrift:"total,2" frugal:"2,default,i64" json:"total"`
+	PageCount int64 `thrift:"page_count,3" frugal:"3,default,i64" json:"page_count"`
+	PageSize  int64 `thrift:"page_size,4" frugal:"4,default,i64" json:"page_size"`
+	PrevPage  int64 `thrift:"prev_page,5" frugal:"5,default,i64" json:"prev_page"`
+	LastPage  int64 `thrift:"last_page,6" frugal:"6,default,i64" json:"last_page"`
 }
 
 func NewPager() *Pager {
@@ -123,45 +123,45 @@ func NewPager() *Pager {
 func (p *Pager) InitDefault() {
 }
 
-func (p *Pager) GetPaged() (v int32) {
+func (p *Pager) GetPaged() (v int64) {
 	return p.Paged
 }
 
-func (p *Pager) GetTotal() (v int32) {
+func (p *Pager) GetTotal() (v int64) {
 	return p.Total
 }
 
-func (p *Pager) GetPageCount() (v int32) {
+func (p *Pager) GetPageCount() (v int64) {
 	return p.PageCount
 }
 
-func (p *Pager) GetPageSize() (v int32) {
+func (p *Pager) GetPageSize() (v int64) {
 	return p.PageSize
 }
 
-func (p *Pager) GetPrevPage() (v int32) {
+func (p *Pager) GetPrevPage() (v int64) {
 	return p.PrevPage
 }
 
-func (p *Pager) GetLastPage() (v int32) {
+func (p *Pager) GetLastPage() (v int64) {
 	return p.LastPage
 }
-func (p *Pager) SetPaged(val int32) {
+func (p *Pager) SetPaged(val int64) {
 	p.Paged = val
 }
-func (p *Pager) SetTotal(val int32) {
+func (p *Pager) SetTotal(val int64) {
 	p.Total = val
 }
-func (p *Pager) SetPageCount(val int32) {
+func (p *Pager) SetPageCount(val int64) {
 	p.PageCount = val
 }
-func (p *Pager) SetPageSize(val int32) {
+func (p *Pager) SetPageSize(val int64) {
 	p.PageSize = val
 }
-func (p *Pager) SetPrevPage(val int32) {
+func (p *Pager) SetPrevPage(val int64) {
 	p.PrevPage = val
 }
-func (p *Pager) SetLastPage(val int32) {
+func (p *Pager) SetLastPage(val int64) {
 	p.LastPage = val
 }
 

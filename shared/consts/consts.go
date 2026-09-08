@@ -1,6 +1,10 @@
 package consts
 
-import "time"
+import (
+	"time"
+
+	"github.com/geiqin/gaiakit/kitex_gen/errno"
+)
 
 const (
 	FreeCar    = "FreeCar"
@@ -71,4 +75,8 @@ const (
 	OCRUrl = "https://aip.baidubce.com/rest/2.0/ocr/v1/driving_license"
 
 	GPTUrl = "https://api.302.ai/v1/chat/completions"
+)
+
+const (
+	Err_ApiBindAndValidate errno.Err = 301
 )

@@ -19,16 +19,16 @@ const (
 	Err_AuthorizeFail      Err = 10002
 	Err_TooManyRequest     Err = 10003
 	Err_ServiceErr         Err = 20000
-	Err_RPCUserSrvErr      Err = 30000
-	Err_UserSrvErr         Err = 30001
+	Err_RPCTenantSrvErr    Err = 30000
+	Err_TenantSrvErr       Err = 30001
 	Err_RPCBlobSrvErr      Err = 40000
 	Err_BlobSrvErr         Err = 40001
-	Err_RPCCarSrvErr       Err = 50000
-	Err_CarSrvErr          Err = 50001
-	Err_RPCProfileSrvErr   Err = 60000
-	Err_ProfileSrvErr      Err = 60001
-	Err_RPCTripSrvErr      Err = 70000
-	Err_TripSrvErr         Err = 70001
+	Err_RPCPowerSrvErr     Err = 50000
+	Err_PowerSrvErr        Err = 50001
+	Err_RPCSettingSrvErr   Err = 60000
+	Err_SettingSrvErr      Err = 60001
+	Err_RPCOmsSrvErr       Err = 70000
+	Err_OmsSrvErr          Err = 70001
 	Err_RecordNotFound     Err = 80000
 	Err_RecordAlreadyExist Err = 80001
 	Err_DirtyData          Err = 80003
@@ -53,26 +53,26 @@ func (p Err) String() string {
 		return "TooManyRequest"
 	case Err_ServiceErr:
 		return "ServiceErr"
-	case Err_RPCUserSrvErr:
-		return "RPCUserSrvErr"
-	case Err_UserSrvErr:
-		return "UserSrvErr"
+	case Err_RPCTenantSrvErr:
+		return "RPCTenantSrvErr"
+	case Err_TenantSrvErr:
+		return "TenantSrvErr"
 	case Err_RPCBlobSrvErr:
 		return "RPCBlobSrvErr"
 	case Err_BlobSrvErr:
 		return "BlobSrvErr"
-	case Err_RPCCarSrvErr:
-		return "RPCCarSrvErr"
-	case Err_CarSrvErr:
-		return "CarSrvErr"
-	case Err_RPCProfileSrvErr:
-		return "RPCProfileSrvErr"
-	case Err_ProfileSrvErr:
-		return "ProfileSrvErr"
-	case Err_RPCTripSrvErr:
-		return "RPCTripSrvErr"
-	case Err_TripSrvErr:
-		return "TripSrvErr"
+	case Err_RPCPowerSrvErr:
+		return "RPCPowerSrvErr"
+	case Err_PowerSrvErr:
+		return "PowerSrvErr"
+	case Err_RPCSettingSrvErr:
+		return "RPCSettingSrvErr"
+	case Err_SettingSrvErr:
+		return "SettingSrvErr"
+	case Err_RPCOmsSrvErr:
+		return "RPCOmsSrvErr"
+	case Err_OmsSrvErr:
+		return "OmsSrvErr"
 	case Err_RecordNotFound:
 		return "RecordNotFound"
 	case Err_RecordAlreadyExist:
@@ -103,26 +103,26 @@ func ErrFromString(s string) (Err, error) {
 		return Err_TooManyRequest, nil
 	case "ServiceErr":
 		return Err_ServiceErr, nil
-	case "RPCUserSrvErr":
-		return Err_RPCUserSrvErr, nil
-	case "UserSrvErr":
-		return Err_UserSrvErr, nil
+	case "RPCTenantSrvErr":
+		return Err_RPCTenantSrvErr, nil
+	case "TenantSrvErr":
+		return Err_TenantSrvErr, nil
 	case "RPCBlobSrvErr":
 		return Err_RPCBlobSrvErr, nil
 	case "BlobSrvErr":
 		return Err_BlobSrvErr, nil
-	case "RPCCarSrvErr":
-		return Err_RPCCarSrvErr, nil
-	case "CarSrvErr":
-		return Err_CarSrvErr, nil
-	case "RPCProfileSrvErr":
-		return Err_RPCProfileSrvErr, nil
-	case "ProfileSrvErr":
-		return Err_ProfileSrvErr, nil
-	case "RPCTripSrvErr":
-		return Err_RPCTripSrvErr, nil
-	case "TripSrvErr":
-		return Err_TripSrvErr, nil
+	case "RPCPowerSrvErr":
+		return Err_RPCPowerSrvErr, nil
+	case "PowerSrvErr":
+		return Err_PowerSrvErr, nil
+	case "RPCSettingSrvErr":
+		return Err_RPCSettingSrvErr, nil
+	case "SettingSrvErr":
+		return Err_SettingSrvErr, nil
+	case "RPCOmsSrvErr":
+		return Err_RPCOmsSrvErr, nil
+	case "OmsSrvErr":
+		return Err_OmsSrvErr, nil
 	case "RecordNotFound":
 		return Err_RecordNotFound, nil
 	case "RecordAlreadyExist":
