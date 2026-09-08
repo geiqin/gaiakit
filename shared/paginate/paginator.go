@@ -3,7 +3,12 @@ package paginate
 import "github.com/geiqin/gaiakit/kitex_gen/base"
 
 type Paginator struct {
-	base.Pager
+	Paged     int64 `json:"paged"`
+	Total     int64 `json:"total"`
+	PageCount int64 `json:"page_count"`
+	PageSize  int64 `json:"page_size"`
+	PrevPage  int64 `json:"prev_page"`
+	LastPage  int64 `json:"last_page"`
 }
 
 func New(paged int64, pageSize ...int64) *Paginator {
