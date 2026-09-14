@@ -7,13 +7,19 @@ import (
 )
 
 const (
-	FreeCar    = "FreeCar"
-	Issuer     = "FreeCar"
-	Admin      = "Admin"
-	User       = "User"
-	ThirtyDays = time.Hour * 24 * 30
-	AccountID  = "accountID"
-	ID         = "id"
+	Platform     = "Gaia"
+	Issuer       = "Gaia"
+	MasterAdmin  = "MasterAdmin"
+	MasterUser   = "MasterUser"
+	MasterMember = "MasterMember"
+	StoreAdmin   = "StoreAdmin"
+	StoreUser    = "StoreUser"
+	StoreMember  = "StoreMember"
+	ThirtyDays   = time.Hour * 24 * 30
+	StoreID      = "storeId"
+	AccountID    = "accountId"
+	AccountType  = "accountType"
+	ID           = "id"
 
 	HlogFilePath = "./tmp/hlog/logs/"
 	KlogFilePath = "./tmp/klog/logs/"
