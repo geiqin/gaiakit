@@ -2,6 +2,7 @@ package auth
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/bytedance/gopkg/cloud/metainfo"
 	"github.com/geiqin/gaiakit/shared/consts"
@@ -59,4 +60,12 @@ func IsMember(ctx context.Context) bool {
 		return true
 	}
 	return false
+}
+
+func GetDbName(storeId int64) string {
+	flag := fmt.Sprintf("%08d", storeId)
+	if storeId == 1 {
+		return "gaia_master"
+	}
+	return "gaia_store_" + flag
 }
