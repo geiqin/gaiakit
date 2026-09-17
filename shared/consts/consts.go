@@ -2,24 +2,23 @@ package consts
 
 import (
 	"time"
-
-	"github.com/geiqin/gaiakit/kitex_gen/errno"
 )
 
 const (
-	Platform     = "Gaia"
-	Issuer       = "Gaia"
-	MasterAdmin  = "MasterAdmin"
-	MasterUser   = "MasterUser"
-	MasterMember = "MasterMember"
-	StoreAdmin   = "StoreAdmin"
-	StoreUser    = "StoreUser"
-	StoreMember  = "StoreMember"
-	ThirtyDays   = time.Hour * 24 * 30
-	StoreID      = "storeId"
-	AccountID    = "accountId"
-	AccountType  = "accountType"
-	ID           = "id"
+	Platform      = "Gaia"
+	Issuer        = "Gaia"
+	MasterAdmin   = "MasterAdmin"
+	MasterUser    = "MasterUser"
+	MasterMember  = "MasterMember"
+	StoreAdmin    = "StoreAdmin"
+	StoreUser     = "StoreUser"
+	StoreMember   = "StoreMember"
+	ThirtyDays    = time.Hour * 24 * 30
+	StoreId       = "storeId"
+	AccountId     = "accountId"
+	AccountType   = "accountType"
+	HeaderStoreId = "X-Store-Id"
+	ID            = "id"
 
 	HlogFilePath = "./tmp/hlog/logs/"
 	KlogFilePath = "./tmp/klog/logs/"
@@ -81,8 +80,4 @@ const (
 	OCRUrl = "https://aip.baidubce.com/rest/2.0/ocr/v1/driving_license"
 
 	GPTUrl = "https://api.302.ai/v1/chat/completions"
-)
-
-const (
-	Err_ApiBindAndValidate errno.Err = 301
 )

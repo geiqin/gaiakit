@@ -11,7 +11,7 @@ import (
 
 //获得当前店铺ID
 func GetStoreId(ctx context.Context) int64 {
-	val, ok := metainfo.GetValue(ctx, consts.StoreID)
+	val, ok := metainfo.GetValue(ctx, consts.StoreId)
 	if ok {
 		v := utils.StringToInt64(val)
 		return v
@@ -21,7 +21,7 @@ func GetStoreId(ctx context.Context) int64 {
 
 //获得登录账号ID
 func GetAccountId(ctx context.Context) int64 {
-	val, ok := metainfo.GetValue(ctx, consts.AccountID)
+	val, ok := metainfo.GetValue(ctx, consts.AccountId)
 	if ok {
 		v := utils.StringToInt64(val)
 		return v
