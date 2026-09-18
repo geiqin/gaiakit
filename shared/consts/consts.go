@@ -6,10 +6,7 @@ import (
 
 const (
 	Platform      = "Gaia"
-	Issuer        = "Gaia"
-	MasterAdmin   = "MasterAdmin"
-	MasterUser    = "MasterUser"
-	MasterMember  = "MasterMember"
+	Issuer        = "Master"
 	StoreAdmin    = "StoreAdmin"
 	StoreUser     = "StoreUser"
 	StoreMember   = "StoreMember"
