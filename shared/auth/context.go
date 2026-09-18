@@ -56,7 +56,7 @@ func IsStore(ctx context.Context) bool {
 
 func IsMember(ctx context.Context) bool {
 	accountType := GetAccountType(ctx)
-	if accountType == consts.MasterMember || accountType == consts.StoreMember {
+	if accountType == consts.StoreMember {
 		return true
 	}
 	return false
