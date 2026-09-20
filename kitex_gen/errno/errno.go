@@ -11,28 +11,40 @@ import (
 type Err int64
 
 const (
-	Err_Success            Err = 0
-	Err_NoRoute            Err = 1
-	Err_NoMethod           Err = 2
-	Err_BadRequest         Err = 10000
-	Err_ParamsErr          Err = 10001
-	Err_AuthorizeFail      Err = 10002
-	Err_TooManyRequest     Err = 10003
-	Err_ServiceErr         Err = 20000
-	Err_RPCTenantSrvErr    Err = 30000
-	Err_TenantSrvErr       Err = 30001
-	Err_RPCBlobSrvErr      Err = 40000
-	Err_BlobSrvErr         Err = 40001
-	Err_RPCPowerSrvErr     Err = 50000
-	Err_PowerSrvErr        Err = 50001
-	Err_RPCSettingSrvErr   Err = 60000
-	Err_SettingSrvErr      Err = 60001
-	Err_RPCOmsSrvErr       Err = 70000
-	Err_OmsSrvErr          Err = 70001
-	Err_RecordNotFound     Err = 80000
-	Err_RecordAlreadyExist Err = 80001
-	Err_DirtyData          Err = 80003
-	Err_TradeSrvErr        Err = 90001
+	Err_Success                Err = 0
+	Err_NoRoute                Err = 1
+	Err_NoMethod               Err = 2
+	Err_TokenErr               Err = 10000
+	Err_BadRequest             Err = 20000
+	Err_ParamsErr              Err = 20001
+	Err_AuthorizeFail          Err = 20002
+	Err_TooManyRequest         Err = 20003
+	Err_ServiceErr             Err = 20004
+	Err_RecordNotFound         Err = 30000
+	Err_RecordAlreadyExist     Err = 30001
+	Err_DirtyData              Err = 30002
+	Err_ApiServiceErr          Err = 40000
+	Err_GlobalSrvClientErr     Err = 41000
+	Err_ComTenantSrvErr        Err = 50000
+	Err_ComTenantSrvClientErr  Err = 50001
+	Err_ComSettingSrvErr       Err = 51000
+	Err_ComSettingSrvClientErr Err = 51001
+	Err_SysPowerSrvErr         Err = 60000
+	Err_SysPowerSrvClientErr   Err = 60001
+	Err_SysBlobSrvErr          Err = 61000
+	Err_SysBlobSrvClientErr    Err = 61001
+	Err_SysSiteSrvErr          Err = 62000
+	Err_SysSiteSrvClientErr    Err = 62001
+	Err_BuyCrmSrvErr           Err = 70000
+	Err_BuyCrmSrvClientErr     Err = 70001
+	Err_BuyOmsSrvErr           Err = 71000
+	Err_BuyOmsSrvClientErr     Err = 71001
+	Err_BuyPaySrvErr           Err = 72000
+	Err_BuyPaySrvClientErr     Err = 72001
+	Err_BuyPdmSrvErr           Err = 73000
+	Err_BuyPdmSrvClientErr     Err = 73001
+	Err_KitAigcSrvErr          Err = 80000
+	Err_KitAigcSrvClientErr    Err = 80001
 )
 
 func (p Err) String() string {
@@ -43,6 +55,8 @@ func (p Err) String() string {
 		return "NoRoute"
 	case Err_NoMethod:
 		return "NoMethod"
+	case Err_TokenErr:
+		return "TokenErr"
 	case Err_BadRequest:
 		return "BadRequest"
 	case Err_ParamsErr:
@@ -53,34 +67,56 @@ func (p Err) String() string {
 		return "TooManyRequest"
 	case Err_ServiceErr:
 		return "ServiceErr"
-	case Err_RPCTenantSrvErr:
-		return "RPCTenantSrvErr"
-	case Err_TenantSrvErr:
-		return "TenantSrvErr"
-	case Err_RPCBlobSrvErr:
-		return "RPCBlobSrvErr"
-	case Err_BlobSrvErr:
-		return "BlobSrvErr"
-	case Err_RPCPowerSrvErr:
-		return "RPCPowerSrvErr"
-	case Err_PowerSrvErr:
-		return "PowerSrvErr"
-	case Err_RPCSettingSrvErr:
-		return "RPCSettingSrvErr"
-	case Err_SettingSrvErr:
-		return "SettingSrvErr"
-	case Err_RPCOmsSrvErr:
-		return "RPCOmsSrvErr"
-	case Err_OmsSrvErr:
-		return "OmsSrvErr"
 	case Err_RecordNotFound:
 		return "RecordNotFound"
 	case Err_RecordAlreadyExist:
 		return "RecordAlreadyExist"
 	case Err_DirtyData:
 		return "DirtyData"
-	case Err_TradeSrvErr:
-		return "TradeSrvErr"
+	case Err_ApiServiceErr:
+		return "ApiServiceErr"
+	case Err_GlobalSrvClientErr:
+		return "GlobalSrvClientErr"
+	case Err_ComTenantSrvErr:
+		return "ComTenantSrvErr"
+	case Err_ComTenantSrvClientErr:
+		return "ComTenantSrvClientErr"
+	case Err_ComSettingSrvErr:
+		return "ComSettingSrvErr"
+	case Err_ComSettingSrvClientErr:
+		return "ComSettingSrvClientErr"
+	case Err_SysPowerSrvErr:
+		return "SysPowerSrvErr"
+	case Err_SysPowerSrvClientErr:
+		return "SysPowerSrvClientErr"
+	case Err_SysBlobSrvErr:
+		return "SysBlobSrvErr"
+	case Err_SysBlobSrvClientErr:
+		return "SysBlobSrvClientErr"
+	case Err_SysSiteSrvErr:
+		return "SysSiteSrvErr"
+	case Err_SysSiteSrvClientErr:
+		return "SysSiteSrvClientErr"
+	case Err_BuyCrmSrvErr:
+		return "BuyCrmSrvErr"
+	case Err_BuyCrmSrvClientErr:
+		return "BuyCrmSrvClientErr"
+	case Err_BuyOmsSrvErr:
+		return "BuyOmsSrvErr"
+	case Err_BuyOmsSrvClientErr:
+		return "BuyOmsSrvClientErr"
+	case Err_BuyPaySrvErr:
+		return "BuyPaySrvErr"
+	case Err_BuyPaySrvClientErr:
+		return "BuyPaySrvClientErr"
+	case Err_BuyPdmSrvErr:
+		return "BuyPdmSrvErr"
+	case Err_BuyPdmSrvClientErr:
+		return "BuyPdmSrvClientErr"
+	case Err_KitAigcSrvErr:
+		return "KitAigcSrvErr"
+	case Err_KitAigcSrvClientErr:
+		return "KitAigcSrvClientErr"
 	}
 	return "<UNSET>"
 }
@@ -93,6 +129,8 @@ func ErrFromString(s string) (Err, error) {
 		return Err_NoRoute, nil
 	case "NoMethod":
 		return Err_NoMethod, nil
+	case "TokenErr":
+		return Err_TokenErr, nil
 	case "BadRequest":
 		return Err_BadRequest, nil
 	case "ParamsErr":
@@ -103,34 +141,56 @@ func ErrFromString(s string) (Err, error) {
 		return Err_TooManyRequest, nil
 	case "ServiceErr":
 		return Err_ServiceErr, nil
-	case "RPCTenantSrvErr":
-		return Err_RPCTenantSrvErr, nil
-	case "TenantSrvErr":
-		return Err_TenantSrvErr, nil
-	case "RPCBlobSrvErr":
-		return Err_RPCBlobSrvErr, nil
-	case "BlobSrvErr":
-		return Err_BlobSrvErr, nil
-	case "RPCPowerSrvErr":
-		return Err_RPCPowerSrvErr, nil
-	case "PowerSrvErr":
-		return Err_PowerSrvErr, nil
-	case "RPCSettingSrvErr":
-		return Err_RPCSettingSrvErr, nil
-	case "SettingSrvErr":
-		return Err_SettingSrvErr, nil
-	case "RPCOmsSrvErr":
-		return Err_RPCOmsSrvErr, nil
-	case "OmsSrvErr":
-		return Err_OmsSrvErr, nil
 	case "RecordNotFound":
 		return Err_RecordNotFound, nil
 	case "RecordAlreadyExist":
 		return Err_RecordAlreadyExist, nil
 	case "DirtyData":
 		return Err_DirtyData, nil
-	case "TradeSrvErr":
-		return Err_TradeSrvErr, nil
+	case "ApiServiceErr":
+		return Err_ApiServiceErr, nil
+	case "GlobalSrvClientErr":
+		return Err_GlobalSrvClientErr, nil
+	case "ComTenantSrvErr":
+		return Err_ComTenantSrvErr, nil
+	case "ComTenantSrvClientErr":
+		return Err_ComTenantSrvClientErr, nil
+	case "ComSettingSrvErr":
+		return Err_ComSettingSrvErr, nil
+	case "ComSettingSrvClientErr":
+		return Err_ComSettingSrvClientErr, nil
+	case "SysPowerSrvErr":
+		return Err_SysPowerSrvErr, nil
+	case "SysPowerSrvClientErr":
+		return Err_SysPowerSrvClientErr, nil
+	case "SysBlobSrvErr":
+		return Err_SysBlobSrvErr, nil
+	case "SysBlobSrvClientErr":
+		return Err_SysBlobSrvClientErr, nil
+	case "SysSiteSrvErr":
+		return Err_SysSiteSrvErr, nil
+	case "SysSiteSrvClientErr":
+		return Err_SysSiteSrvClientErr, nil
+	case "BuyCrmSrvErr":
+		return Err_BuyCrmSrvErr, nil
+	case "BuyCrmSrvClientErr":
+		return Err_BuyCrmSrvClientErr, nil
+	case "BuyOmsSrvErr":
+		return Err_BuyOmsSrvErr, nil
+	case "BuyOmsSrvClientErr":
+		return Err_BuyOmsSrvClientErr, nil
+	case "BuyPaySrvErr":
+		return Err_BuyPaySrvErr, nil
+	case "BuyPaySrvClientErr":
+		return Err_BuyPaySrvClientErr, nil
+	case "BuyPdmSrvErr":
+		return Err_BuyPdmSrvErr, nil
+	case "BuyPdmSrvClientErr":
+		return Err_BuyPdmSrvClientErr, nil
+	case "KitAigcSrvErr":
+		return Err_KitAigcSrvErr, nil
+	case "KitAigcSrvClientErr":
+		return Err_KitAigcSrvClientErr, nil
 	}
 	return Err(0), fmt.Errorf("not a valid Err string")
 }
