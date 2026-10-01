@@ -25,6 +25,8 @@ enum Err {
     SysBlobSrvClientErr        = 61001,
     SysSiteSrvErr              = 62000,
     SysSiteSrvClientErr        = 62001,
+    SysCmsSrvErr               = 63000,
+    SysCmsSrvClientErr         = 63001,
     BuyCrmSrvErr               = 70000,
     BuyCrmSrvClientErr         = 70001,
     BuyOmsSrvErr               = 71000,

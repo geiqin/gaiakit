@@ -35,6 +35,8 @@ const (
 	Err_SysBlobSrvClientErr    Err = 61001
 	Err_SysSiteSrvErr          Err = 62000
 	Err_SysSiteSrvClientErr    Err = 62001
+	Err_SysCmsSrvErr           Err = 63000
+	Err_SysCmsSrvClientErr     Err = 63001
 	Err_BuyCrmSrvErr           Err = 70000
 	Err_BuyCrmSrvClientErr     Err = 70001
 	Err_BuyOmsSrvErr           Err = 71000
@@ -97,6 +99,10 @@ func (p Err) String() string {
 		return "SysSiteSrvErr"
 	case Err_SysSiteSrvClientErr:
 		return "SysSiteSrvClientErr"
+	case Err_SysCmsSrvErr:
+		return "SysCmsSrvErr"
+	case Err_SysCmsSrvClientErr:
+		return "SysCmsSrvClientErr"
 	case Err_BuyCrmSrvErr:
 		return "BuyCrmSrvErr"
 	case Err_BuyCrmSrvClientErr:
@@ -171,6 +177,10 @@ func ErrFromString(s string) (Err, error) {
 		return Err_SysSiteSrvErr, nil
 	case "SysSiteSrvClientErr":
 		return Err_SysSiteSrvClientErr, nil
+	case "SysCmsSrvErr":
+		return Err_SysCmsSrvErr, nil
+	case "SysCmsSrvClientErr":
+		return Err_SysCmsSrvClientErr, nil
 	case "BuyCrmSrvErr":
 		return Err_BuyCrmSrvErr, nil
 	case "BuyCrmSrvClientErr":

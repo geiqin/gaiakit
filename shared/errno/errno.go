@@ -60,6 +60,8 @@ var (
 	SysBlobSrvClientErr    = NewErrNo(int64(errno.Err_SysBlobSrvClientErr), "sys.blob.srv client error")
 	SysSiteSrvErr          = NewErrNo(int64(errno.Err_SysSiteSrvErr), "sys.site.srv error")
 	SysSiteSrvClientErr    = NewErrNo(int64(errno.Err_SysSiteSrvClientErr), "sys.site.srv client error")
+	SysCmsSrvErr           = NewErrNo(int64(errno.Err_SysCmsSrvErr), "sys.cms.srv error")
+	SysCmsSrvClientErr     = NewErrNo(int64(errno.Err_SysCmsSrvClientErr), "sys.cms.srv client error")
 	BuyCrmSrvErr           = NewErrNo(int64(errno.Err_BuyCrmSrvErr), "buy.crm.srv error")
 	BuyCrmSrvClientErr     = NewErrNo(int64(errno.Err_BuyCrmSrvClientErr), "buy.crm.srv client error")
 	BuyOmsSrvErr           = NewErrNo(int64(errno.Err_BuyOmsSrvErr), "buy.oms.srv error")
