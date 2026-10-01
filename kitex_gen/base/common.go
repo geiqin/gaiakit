@@ -180,3 +180,295 @@ var fieldIDToName_Pager = map[int16]string{
 	5: "prev_page",
 	6: "last_page",
 }
+
+type VueRoute struct {
+	Id         int64       `thrift:"id,1" frugal:"1,default,i64" json:"id"`
+	ParentId   int64       `thrift:"parentId,2" frugal:"2,default,i64" json:"parentId"`
+	Title      string      `thrift:"title,3" frugal:"3,default,string" json:"title"`
+	Type       int32       `thrift:"type,4" frugal:"4,default,i32" json:"type"`
+	Path       string      `thrift:"path,5" frugal:"5,default,string" json:"path"`
+	Name       string      `thrift:"name,6" frugal:"6,default,string" json:"name"`
+	Component  string      `thrift:"component,7" frugal:"7,default,string" json:"component"`
+	Redirect   string      `thrift:"redirect,8" frugal:"8,default,string" json:"redirect"`
+	Icon       string      `thrift:"icon,9" frugal:"9,default,string" json:"icon"`
+	Permission string      `thrift:"permission,10" frugal:"10,default,string" json:"permission"`
+	Locale     string      `thrift:"locale,11" frugal:"11,default,string" json:"locale"`
+	IsCache    bool        `thrift:"isCache,12" frugal:"12,default,bool" json:"isCache"`
+	IsHidden   bool        `thrift:"isHidden,13" frugal:"13,default,bool" json:"isHidden"`
+	IsExternal bool        `thrift:"isExternal,14" frugal:"14,default,bool" json:"isExternal"`
+	Sort       int32       `thrift:"sort,15" frugal:"15,default,i32" json:"sort"`
+	Status     string      `thrift:"status,16" frugal:"16,default,string" json:"status"`
+	ActiveMenu string      `thrift:"activeMenu,17" frugal:"17,default,string" json:"activeMenu"`
+	AlwaysShow bool        `thrift:"alwaysShow,18" frugal:"18,default,bool" json:"alwaysShow"`
+	Breadcrumb bool        `thrift:"breadcrumb,19" frugal:"19,default,bool" json:"breadcrumb"`
+	ShowInTabs bool        `thrift:"showInTabs,20" frugal:"20,default,bool" json:"showInTabs"`
+	Affix      bool        `thrift:"affix,21" frugal:"21,default,bool" json:"affix"`
+	Roles      []string    `thrift:"roles,22" frugal:"22,default,list<string>" json:"roles"`
+	Children   []*VueRoute `thrift:"children,23" frugal:"23,default,list<VueRoute>" json:"children"`
+}
+
+func NewVueRoute() *VueRoute {
+	return &VueRoute{}
+}
+
+func (p *VueRoute) InitDefault() {
+}
+
+func (p *VueRoute) GetId() (v int64) {
+	return p.Id
+}
+
+func (p *VueRoute) GetParentId() (v int64) {
+	return p.ParentId
+}
+
+func (p *VueRoute) GetTitle() (v string) {
+	return p.Title
+}
+
+func (p *VueRoute) GetType() (v int32) {
+	return p.Type
+}
+
+func (p *VueRoute) GetPath() (v string) {
+	return p.Path
+}
+
+func (p *VueRoute) GetName() (v string) {
+	return p.Name
+}
+
+func (p *VueRoute) GetComponent() (v string) {
+	return p.Component
+}
+
+func (p *VueRoute) GetRedirect() (v string) {
+	return p.Redirect
+}
+
+func (p *VueRoute) GetIcon() (v string) {
+	return p.Icon
+}
+
+func (p *VueRoute) GetPermission() (v string) {
+	return p.Permission
+}
+
+func (p *VueRoute) GetLocale() (v string) {
+	return p.Locale
+}
+
+func (p *VueRoute) GetIsCache() (v bool) {
+	return p.IsCache
+}
+
+func (p *VueRoute) GetIsHidden() (v bool) {
+	return p.IsHidden
+}
+
+func (p *VueRoute) GetIsExternal() (v bool) {
+	return p.IsExternal
+}
+
+func (p *VueRoute) GetSort() (v int32) {
+	return p.Sort
+}
+
+func (p *VueRoute) GetStatus() (v string) {
+	return p.Status
+}
+
+func (p *VueRoute) GetActiveMenu() (v string) {
+	return p.ActiveMenu
+}
+
+func (p *VueRoute) GetAlwaysShow() (v bool) {
+	return p.AlwaysShow
+}
+
+func (p *VueRoute) GetBreadcrumb() (v bool) {
+	return p.Breadcrumb
+}
+
+func (p *VueRoute) GetShowInTabs() (v bool) {
+	return p.ShowInTabs
+}
+
+func (p *VueRoute) GetAffix() (v bool) {
+	return p.Affix
+}
+
+func (p *VueRoute) GetRoles() (v []string) {
+	return p.Roles
+}
+
+func (p *VueRoute) GetChildren() (v []*VueRoute) {
+	return p.Children
+}
+func (p *VueRoute) SetId(val int64) {
+	p.Id = val
+}
+func (p *VueRoute) SetParentId(val int64) {
+	p.ParentId = val
+}
+func (p *VueRoute) SetTitle(val string) {
+	p.Title = val
+}
+func (p *VueRoute) SetType(val int32) {
+	p.Type = val
+}
+func (p *VueRoute) SetPath(val string) {
+	p.Path = val
+}
+func (p *VueRoute) SetName(val string) {
+	p.Name = val
+}
+func (p *VueRoute) SetComponent(val string) {
+	p.Component = val
+}
+func (p *VueRoute) SetRedirect(val string) {
+	p.Redirect = val
+}
+func (p *VueRoute) SetIcon(val string) {
+	p.Icon = val
+}
+func (p *VueRoute) SetPermission(val string) {
+	p.Permission = val
+}
+func (p *VueRoute) SetLocale(val string) {
+	p.Locale = val
+}
+func (p *VueRoute) SetIsCache(val bool) {
+	p.IsCache = val
+}
+func (p *VueRoute) SetIsHidden(val bool) {
+	p.IsHidden = val
+}
+func (p *VueRoute) SetIsExternal(val bool) {
+	p.IsExternal = val
+}
+func (p *VueRoute) SetSort(val int32) {
+	p.Sort = val
+}
+func (p *VueRoute) SetStatus(val string) {
+	p.Status = val
+}
+func (p *VueRoute) SetActiveMenu(val string) {
+	p.ActiveMenu = val
+}
+func (p *VueRoute) SetAlwaysShow(val bool) {
+	p.AlwaysShow = val
+}
+func (p *VueRoute) SetBreadcrumb(val bool) {
+	p.Breadcrumb = val
+}
+func (p *VueRoute) SetShowInTabs(val bool) {
+	p.ShowInTabs = val
+}
+func (p *VueRoute) SetAffix(val bool) {
+	p.Affix = val
+}
+func (p *VueRoute) SetRoles(val []string) {
+	p.Roles = val
+}
+func (p *VueRoute) SetChildren(val []*VueRoute) {
+	p.Children = val
+}
+
+func (p *VueRoute) String() string {
+	if p == nil {
+		return "<nil>"
+	}
+	return fmt.Sprintf("VueRoute(%+v)", *p)
+}
+
+var fieldIDToName_VueRoute = map[int16]string{
+	1:  "id",
+	2:  "parentId",
+	3:  "title",
+	4:  "type",
+	5:  "path",
+	6:  "name",
+	7:  "component",
+	8:  "redirect",
+	9:  "icon",
+	10: "permission",
+	11: "locale",
+	12: "isCache",
+	13: "isHidden",
+	14: "isExternal",
+	15: "sort",
+	16: "status",
+	17: "activeMenu",
+	18: "alwaysShow",
+	19: "breadcrumb",
+	20: "showInTabs",
+	21: "affix",
+	22: "roles",
+	23: "children",
+}
+
+type Dropdown struct {
+	Key      int64       `thrift:"key,1" frugal:"1,default,i64" json:"key"`
+	ParentId int64       `thrift:"parentId,2" frugal:"2,default,i64" json:"parentId"`
+	Title    string      `thrift:"title,3" frugal:"3,default,string" json:"title"`
+	Sort     int32       `thrift:"sort,4" frugal:"4,default,i32" json:"sort"`
+	Children []*Dropdown `thrift:"children,5" frugal:"5,default,list<Dropdown>" json:"children"`
+}
+
+func NewDropdown() *Dropdown {
+	return &Dropdown{}
+}
+
+func (p *Dropdown) InitDefault() {
+}
+
+func (p *Dropdown) GetKey() (v int64) {
+	return p.Key
+}
+
+func (p *Dropdown) GetParentId() (v int64) {
+	return p.ParentId
+}
+
+func (p *Dropdown) GetTitle() (v string) {
+	return p.Title
+}
+
+func (p *Dropdown) GetSort() (v int32) {
+	return p.Sort
+}
+
+func (p *Dropdown) GetChildren() (v []*Dropdown) {
+	return p.Children
+}
+func (p *Dropdown) SetKey(val int64) {
+	p.Key = val
+}
+func (p *Dropdown) SetParentId(val int64) {
+	p.ParentId = val
+}
+func (p *Dropdown) SetTitle(val string) {
+	p.Title = val
+}
+func (p *Dropdown) SetSort(val int32) {
+	p.Sort = val
+}
+func (p *Dropdown) SetChildren(val []*Dropdown) {
+	p.Children = val
+}
+
+func (p *Dropdown) String() string {
+	if p == nil {
+		return "<nil>"
+	}
+	return fmt.Sprintf("Dropdown(%+v)", *p)
+}
+
+var fieldIDToName_Dropdown = map[int16]string{
+	1: "key",
+	2: "parentId",
+	3: "title",
+	4: "sort",
+	5: "children",
+}
