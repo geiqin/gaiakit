@@ -34,6 +34,11 @@ type MinioConfig struct {
 	Bucket          string `mapstructure:"bucket" json:"bucket"`
 }
 
+type NatsConfig struct {
+	Host string `mapstructure:"host" json:"host"`
+	Port int    `mapstructure:"port" json:"port"`
+}
+
 type OtelConfig struct {
 	EndPoint string `mapstructure:"endpoint" json:"endpoint"`
 }

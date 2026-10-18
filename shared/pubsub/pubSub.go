@@ -17,7 +17,6 @@ type EventType string
 
 //消息注册
 func Init(natsHost string, natsPort int) {
-	
 	addr := fmt.Sprintf(consts.NatsURI, natsHost, natsPort)
 	myBroker = nats.NewNatsBroker(broker.Addrs(addr))
 
