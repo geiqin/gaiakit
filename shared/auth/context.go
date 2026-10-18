@@ -7,6 +7,7 @@ import (
 	"github.com/bytedance/gopkg/cloud/metainfo"
 	"github.com/geiqin/gaiakit/shared/consts"
 	"github.com/geiqin/gaiakit/shared/utils"
+	"github.com/geiqin/micro/broker"
 )
 
 //获得当前店铺ID
@@ -68,4 +69,18 @@ func GetDbName(storeId int64) string {
 		return "gaia_master"
 	}
 	return "gaia_store_" + flag
+}
+
+func NewContextByBroker(p broker.Event) context.Context {
+	ctx := context.Background()
+	if p != nil && p.Message().Header != nil {
+		storeId := p.Message().Header["store_id"]
+		if storeId != "" {
+			sid := utils.StringToInt64(storeId)
+			if sid > 0 {
+				ctx = metainfo.WithValue(ctx, consts.StoreId, storeId)
+			}
+		}
+	}
+	return ctx
 }
