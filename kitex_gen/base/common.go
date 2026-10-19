@@ -197,7 +197,7 @@ type VueRoute struct {
 	IsHidden   bool        `thrift:"isHidden,13" frugal:"13,default,bool" json:"isHidden"`
 	IsExternal bool        `thrift:"isExternal,14" frugal:"14,default,bool" json:"isExternal"`
 	Sort       int32       `thrift:"sort,15" frugal:"15,default,i32" json:"sort"`
-	Status     string      `thrift:"status,16" frugal:"16,default,string" json:"status"`
+	Status     int32       `thrift:"status,16" frugal:"16,default,i32" json:"status"`
 	ActiveMenu string      `thrift:"activeMenu,17" frugal:"17,default,string" json:"activeMenu"`
 	AlwaysShow bool        `thrift:"alwaysShow,18" frugal:"18,default,bool" json:"alwaysShow"`
 	Breadcrumb bool        `thrift:"breadcrumb,19" frugal:"19,default,bool" json:"breadcrumb"`
@@ -274,7 +274,7 @@ func (p *VueRoute) GetSort() (v int32) {
 	return p.Sort
 }
 
-func (p *VueRoute) GetStatus() (v string) {
+func (p *VueRoute) GetStatus() (v int32) {
 	return p.Status
 }
 
@@ -350,7 +350,7 @@ func (p *VueRoute) SetIsExternal(val bool) {
 func (p *VueRoute) SetSort(val int32) {
 	p.Sort = val
 }
-func (p *VueRoute) SetStatus(val string) {
+func (p *VueRoute) SetStatus(val int32) {
 	p.Status = val
 }
 func (p *VueRoute) SetActiveMenu(val string) {

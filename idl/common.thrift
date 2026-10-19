@@ -33,7 +33,7 @@ struct VueRoute {
     13: bool isHidden, //是否隐藏: 1是 0否
     14: bool isExternal, //是否外链: 1是 0否
     15: i32 sort, //排序值
-    16: string status, //状态: （1：启用；2：禁用）
+    16: i32 status, //状态: （1：启用；2：禁用）
     17: string activeMenu, //
     18: bool alwaysShow, //
     19: bool breadcrumb, //
