@@ -10,6 +10,12 @@ import (
 	"github.com/geiqin/micro/broker"
 )
 
+type UserInfo struct {
+	UserId   int64  `json:"user_id"`
+	UserType string `json:"user_type"` //类型：member会员,user-内部用户
+	StoreId  int64  `json:"store_id"`
+}
+
 //获得当前店铺ID
 func GetStoreId(ctx context.Context) int64 {
 	val, ok := metainfo.GetValue(ctx, consts.StoreId)
@@ -35,6 +41,21 @@ func GetAccountType(ctx context.Context) string {
 	val, ok := metainfo.GetValue(ctx, consts.AccountType)
 	if ok {
 		return val
+	}
+	return ""
+}
+
+//获得用户类型
+func GetUserType(ctx context.Context) string {
+	val, ok := metainfo.GetValue(ctx, consts.AccountType)
+	if ok {
+		return val
+	}
+	switch val {
+	case consts.StoreMember:
+		return "member"
+	case consts.StoreUser:
+		return "user"
 	}
 	return ""
 }
@@ -83,4 +104,12 @@ func NewContextByBroker(p broker.Event) context.Context {
 		}
 	}
 	return ctx
+}
+
+func GetUser(ctx context.Context) UserInfo {
+	return UserInfo{
+		UserId:   GetAccountId(ctx),
+		UserType: GetUserType(ctx),
+		StoreId:  GetStoreId(ctx),
+	}
 }
