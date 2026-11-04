@@ -5,10 +5,10 @@ import "github.com/geiqin/gaiakit/kitex_gen/base"
 type Paginator struct {
 	Paged     int64 `json:"paged"`
 	Total     int64 `json:"total"`
-	PageCount int64 `json:"page_count"`
-	PageSize  int64 `json:"page_size"`
-	PrevPage  int64 `json:"prev_page"`
-	LastPage  int64 `json:"last_page"`
+	PageCount int64 `json:"pageCount"`
+	PageSize  int64 `json:"pageSize"`
+	PrevPage  int64 `json:"prevPage"`
+	LastPage  int64 `json:"lastPage"`
 }
 
 func New(paged int64, pageSize ...int64) *Paginator {
