@@ -106,6 +106,12 @@ func NewContextByBroker(p broker.Event) context.Context {
 	return ctx
 }
 
+// NewContextByStoreId 后续该方法并入 helper 中
+func NewContextByStoreId(storeId int64) context.Context {
+	ctx := metainfo.WithValue(context.Background(), consts.StoreId, utils.ToString(storeId))
+	return ctx
+}
+
 func GetUser(ctx context.Context) UserInfo {
 	return UserInfo{
 		UserId:   GetAccountId(ctx),
