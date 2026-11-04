@@ -11,10 +11,10 @@ struct NilResponse {}
 struct Pager {
     1: i64 paged,
     2: i64 total,
-    3: i64 page_count,
-    4: i64 page_size,
-    5: i64 prev_page,
-    6: i64 last_page,
+    3: i64 pageCount,
+    4: i64 pageSize,
+    5: i64 prevPage,
+    6: i64 lastPage,
 }
 
 struct VueRoute {
@@ -49,9 +49,4 @@ struct Dropdown {
     3: string title, //标题
     4: i32 sort, //排序
     5: list<Dropdown> children,
-}
-
-enum BoolStatus {
-    TRUE = 0,
-    FALSE = 1,
 }

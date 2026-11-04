@@ -3,52 +3,8 @@
 package base
 
 import (
-	"database/sql"
-	"database/sql/driver"
 	"fmt"
 )
-
-type BoolStatus int64
-
-const (
-	BoolStatus_TRUE  BoolStatus = 0
-	BoolStatus_FALSE BoolStatus = 1
-)
-
-func (p BoolStatus) String() string {
-	switch p {
-	case BoolStatus_TRUE:
-		return "TRUE"
-	case BoolStatus_FALSE:
-		return "FALSE"
-	}
-	return "<UNSET>"
-}
-
-func BoolStatusFromString(s string) (BoolStatus, error) {
-	switch s {
-	case "TRUE":
-		return BoolStatus_TRUE, nil
-	case "FALSE":
-		return BoolStatus_FALSE, nil
-	}
-	return BoolStatus(0), fmt.Errorf("not a valid BoolStatus string")
-}
-
-func BoolStatusPtr(v BoolStatus) *BoolStatus { return &v }
-func (p *BoolStatus) Scan(value interface{}) (err error) {
-	var result sql.NullInt64
-	err = result.Scan(value)
-	*p = BoolStatus(result.Int64)
-	return
-}
-
-func (p *BoolStatus) Value() (driver.Value, error) {
-	if p == nil {
-		return nil, nil
-	}
-	return int64(*p), nil
-}
 
 type BaseResponse struct {
 	Code int64  `thrift:"code,1" frugal:"1,default,i64" json:"code"`
@@ -110,10 +66,10 @@ var fieldIDToName_NilResponse = map[int16]string{}
 type Pager struct {
 	Paged     int64 `thrift:"paged,1" frugal:"1,default,i64" json:"paged"`
 	Total     int64 `thrift:"total,2" frugal:"2,default,i64" json:"total"`
-	PageCount int64 `thrift:"page_count,3" frugal:"3,default,i64" json:"page_count"`
-	PageSize  int64 `thrift:"page_size,4" frugal:"4,default,i64" json:"page_size"`
-	PrevPage  int64 `thrift:"prev_page,5" frugal:"5,default,i64" json:"prev_page"`
-	LastPage  int64 `thrift:"last_page,6" frugal:"6,default,i64" json:"last_page"`
+	PageCount int64 `thrift:"pageCount,3" frugal:"3,default,i64" json:"pageCount"`
+	PageSize  int64 `thrift:"pageSize,4" frugal:"4,default,i64" json:"pageSize"`
+	PrevPage  int64 `thrift:"prevPage,5" frugal:"5,default,i64" json:"prevPage"`
+	LastPage  int64 `thrift:"lastPage,6" frugal:"6,default,i64" json:"lastPage"`
 }
 
 func NewPager() *Pager {
@@ -175,10 +131,10 @@ func (p *Pager) String() string {
 var fieldIDToName_Pager = map[int16]string{
 	1: "paged",
 	2: "total",
-	3: "page_count",
-	4: "page_size",
-	5: "prev_page",
-	6: "last_page",
+	3: "pageCount",
+	4: "pageSize",
+	5: "prevPage",
+	6: "lastPage",
 }
 
 type VueRoute struct {
