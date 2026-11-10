@@ -43,10 +43,10 @@ struct VueRoute {
     23: list<VueRoute> children,
 }
 
-struct Dropdown {
-    1: i64 key, //ID
-    2: i64 parentId, //父ID
-    3: string title, //标题
+struct TreeNodeData {
+    1: i64 key, //节点唯一标识，整个树范围内不能重复
+    2: string title, //节点显示内容
+    3: i64 parentId, //父亲ID
     4: i32 sort, //排序
-    5: list<Dropdown> children,
+    5: list<TreeNodeData> children,
 }

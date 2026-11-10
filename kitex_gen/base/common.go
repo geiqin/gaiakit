@@ -364,67 +364,67 @@ var fieldIDToName_VueRoute = map[int16]string{
 	23: "children",
 }
 
-type Dropdown struct {
-	Key      int64       `thrift:"key,1" frugal:"1,default,i64" json:"key"`
-	ParentId int64       `thrift:"parentId,2" frugal:"2,default,i64" json:"parentId"`
-	Title    string      `thrift:"title,3" frugal:"3,default,string" json:"title"`
-	Sort     int32       `thrift:"sort,4" frugal:"4,default,i32" json:"sort"`
-	Children []*Dropdown `thrift:"children,5" frugal:"5,default,list<Dropdown>" json:"children"`
+type TreeNodeData struct {
+	Key      int64           `thrift:"key,1" frugal:"1,default,i64" json:"key"`
+	Title    string          `thrift:"title,2" frugal:"2,default,string" json:"title"`
+	ParentId int64           `thrift:"parentId,3" frugal:"3,default,i64" json:"parentId"`
+	Sort     int32           `thrift:"sort,4" frugal:"4,default,i32" json:"sort"`
+	Children []*TreeNodeData `thrift:"children,5" frugal:"5,default,list<TreeNodeData>" json:"children"`
 }
 
-func NewDropdown() *Dropdown {
-	return &Dropdown{}
+func NewTreeNodeData() *TreeNodeData {
+	return &TreeNodeData{}
 }
 
-func (p *Dropdown) InitDefault() {
+func (p *TreeNodeData) InitDefault() {
 }
 
-func (p *Dropdown) GetKey() (v int64) {
+func (p *TreeNodeData) GetKey() (v int64) {
 	return p.Key
 }
 
-func (p *Dropdown) GetParentId() (v int64) {
-	return p.ParentId
-}
-
-func (p *Dropdown) GetTitle() (v string) {
+func (p *TreeNodeData) GetTitle() (v string) {
 	return p.Title
 }
 
-func (p *Dropdown) GetSort() (v int32) {
+func (p *TreeNodeData) GetParentId() (v int64) {
+	return p.ParentId
+}
+
+func (p *TreeNodeData) GetSort() (v int32) {
 	return p.Sort
 }
 
-func (p *Dropdown) GetChildren() (v []*Dropdown) {
+func (p *TreeNodeData) GetChildren() (v []*TreeNodeData) {
 	return p.Children
 }
-func (p *Dropdown) SetKey(val int64) {
+func (p *TreeNodeData) SetKey(val int64) {
 	p.Key = val
 }
-func (p *Dropdown) SetParentId(val int64) {
-	p.ParentId = val
-}
-func (p *Dropdown) SetTitle(val string) {
+func (p *TreeNodeData) SetTitle(val string) {
 	p.Title = val
 }
-func (p *Dropdown) SetSort(val int32) {
+func (p *TreeNodeData) SetParentId(val int64) {
+	p.ParentId = val
+}
+func (p *TreeNodeData) SetSort(val int32) {
 	p.Sort = val
 }
-func (p *Dropdown) SetChildren(val []*Dropdown) {
+func (p *TreeNodeData) SetChildren(val []*TreeNodeData) {
 	p.Children = val
 }
 
-func (p *Dropdown) String() string {
+func (p *TreeNodeData) String() string {
 	if p == nil {
 		return "<nil>"
 	}
-	return fmt.Sprintf("Dropdown(%+v)", *p)
+	return fmt.Sprintf("TreeNodeData(%+v)", *p)
 }
 
-var fieldIDToName_Dropdown = map[int16]string{
+var fieldIDToName_TreeNodeData = map[int16]string{
 	1: "key",
-	2: "parentId",
-	3: "title",
+	2: "title",
+	3: "parentId",
 	4: "sort",
 	5: "children",
 }

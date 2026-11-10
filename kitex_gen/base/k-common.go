@@ -1642,7 +1642,7 @@ func (p *VueRoute) field23Length() int {
 	return l
 }
 
-func (p *Dropdown) FastRead(buf []byte) (int, error) {
+func (p *TreeNodeData) FastRead(buf []byte) (int, error) {
 
 	var err error
 	var offset int
@@ -1674,7 +1674,7 @@ func (p *Dropdown) FastRead(buf []byte) (int, error) {
 				}
 			}
 		case 2:
-			if fieldTypeId == thrift.I64 {
+			if fieldTypeId == thrift.STRING {
 				l, err = p.FastReadField2(buf[offset:])
 				offset += l
 				if err != nil {
@@ -1688,7 +1688,7 @@ func (p *Dropdown) FastRead(buf []byte) (int, error) {
 				}
 			}
 		case 3:
-			if fieldTypeId == thrift.STRING {
+			if fieldTypeId == thrift.I64 {
 				l, err = p.FastReadField3(buf[offset:])
 				offset += l
 				if err != nil {
@@ -1742,12 +1742,12 @@ func (p *Dropdown) FastRead(buf []byte) (int, error) {
 ReadFieldBeginError:
 	return offset, thrift.PrependError(fmt.Sprintf("%T read field %d begin error: ", p, fieldId), err)
 ReadFieldError:
-	return offset, thrift.PrependError(fmt.Sprintf("%T read field %d '%s' error: ", p, fieldId, fieldIDToName_Dropdown[fieldId]), err)
+	return offset, thrift.PrependError(fmt.Sprintf("%T read field %d '%s' error: ", p, fieldId, fieldIDToName_TreeNodeData[fieldId]), err)
 SkipFieldError:
 	return offset, thrift.PrependError(fmt.Sprintf("%T field %d skip type %d error: ", p, fieldId, fieldTypeId), err)
 }
 
-func (p *Dropdown) FastReadField1(buf []byte) (int, error) {
+func (p *TreeNodeData) FastReadField1(buf []byte) (int, error) {
 	offset := 0
 
 	var _field int64
@@ -1761,21 +1761,7 @@ func (p *Dropdown) FastReadField1(buf []byte) (int, error) {
 	return offset, nil
 }
 
-func (p *Dropdown) FastReadField2(buf []byte) (int, error) {
-	offset := 0
-
-	var _field int64
-	if v, l, err := thrift.Binary.ReadI64(buf[offset:]); err != nil {
-		return offset, err
-	} else {
-		offset += l
-		_field = v
-	}
-	p.ParentId = _field
-	return offset, nil
-}
-
-func (p *Dropdown) FastReadField3(buf []byte) (int, error) {
+func (p *TreeNodeData) FastReadField2(buf []byte) (int, error) {
 	offset := 0
 
 	var _field string
@@ -1789,7 +1775,21 @@ func (p *Dropdown) FastReadField3(buf []byte) (int, error) {
 	return offset, nil
 }
 
-func (p *Dropdown) FastReadField4(buf []byte) (int, error) {
+func (p *TreeNodeData) FastReadField3(buf []byte) (int, error) {
+	offset := 0
+
+	var _field int64
+	if v, l, err := thrift.Binary.ReadI64(buf[offset:]); err != nil {
+		return offset, err
+	} else {
+		offset += l
+		_field = v
+	}
+	p.ParentId = _field
+	return offset, nil
+}
+
+func (p *TreeNodeData) FastReadField4(buf []byte) (int, error) {
 	offset := 0
 
 	var _field int32
@@ -1803,7 +1803,7 @@ func (p *Dropdown) FastReadField4(buf []byte) (int, error) {
 	return offset, nil
 }
 
-func (p *Dropdown) FastReadField5(buf []byte) (int, error) {
+func (p *TreeNodeData) FastReadField5(buf []byte) (int, error) {
 	offset := 0
 
 	_, size, l, err := thrift.Binary.ReadListBegin(buf[offset:])
@@ -1811,8 +1811,8 @@ func (p *Dropdown) FastReadField5(buf []byte) (int, error) {
 	if err != nil {
 		return offset, err
 	}
-	_field := make([]*Dropdown, 0, size)
-	values := make([]Dropdown, size)
+	_field := make([]*TreeNodeData, 0, size)
+	values := make([]TreeNodeData, size)
 	for i := 0; i < size; i++ {
 		_elem := &values[i]
 		_elem.InitDefault()
@@ -1828,24 +1828,24 @@ func (p *Dropdown) FastReadField5(buf []byte) (int, error) {
 	return offset, nil
 }
 
-func (p *Dropdown) FastWrite(buf []byte) int {
+func (p *TreeNodeData) FastWrite(buf []byte) int {
 	return p.FastWriteNocopy(buf, nil)
 }
 
-func (p *Dropdown) FastWriteNocopy(buf []byte, w thrift.NocopyWriter) int {
+func (p *TreeNodeData) FastWriteNocopy(buf []byte, w thrift.NocopyWriter) int {
 	offset := 0
 	if p != nil {
 		offset += p.fastWriteField1(buf[offset:], w)
-		offset += p.fastWriteField2(buf[offset:], w)
-		offset += p.fastWriteField4(buf[offset:], w)
 		offset += p.fastWriteField3(buf[offset:], w)
+		offset += p.fastWriteField4(buf[offset:], w)
+		offset += p.fastWriteField2(buf[offset:], w)
 		offset += p.fastWriteField5(buf[offset:], w)
 	}
 	offset += thrift.Binary.WriteFieldStop(buf[offset:])
 	return offset
 }
 
-func (p *Dropdown) BLength() int {
+func (p *TreeNodeData) BLength() int {
 	l := 0
 	if p != nil {
 		l += p.field1Length()
@@ -1858,35 +1858,35 @@ func (p *Dropdown) BLength() int {
 	return l
 }
 
-func (p *Dropdown) fastWriteField1(buf []byte, w thrift.NocopyWriter) int {
+func (p *TreeNodeData) fastWriteField1(buf []byte, w thrift.NocopyWriter) int {
 	offset := 0
 	offset += thrift.Binary.WriteFieldBegin(buf[offset:], thrift.I64, 1)
 	offset += thrift.Binary.WriteI64(buf[offset:], p.Key)
 	return offset
 }
 
-func (p *Dropdown) fastWriteField2(buf []byte, w thrift.NocopyWriter) int {
+func (p *TreeNodeData) fastWriteField2(buf []byte, w thrift.NocopyWriter) int {
 	offset := 0
-	offset += thrift.Binary.WriteFieldBegin(buf[offset:], thrift.I64, 2)
-	offset += thrift.Binary.WriteI64(buf[offset:], p.ParentId)
-	return offset
-}
-
-func (p *Dropdown) fastWriteField3(buf []byte, w thrift.NocopyWriter) int {
-	offset := 0
-	offset += thrift.Binary.WriteFieldBegin(buf[offset:], thrift.STRING, 3)
+	offset += thrift.Binary.WriteFieldBegin(buf[offset:], thrift.STRING, 2)
 	offset += thrift.Binary.WriteStringNocopy(buf[offset:], w, p.Title)
 	return offset
 }
 
-func (p *Dropdown) fastWriteField4(buf []byte, w thrift.NocopyWriter) int {
+func (p *TreeNodeData) fastWriteField3(buf []byte, w thrift.NocopyWriter) int {
+	offset := 0
+	offset += thrift.Binary.WriteFieldBegin(buf[offset:], thrift.I64, 3)
+	offset += thrift.Binary.WriteI64(buf[offset:], p.ParentId)
+	return offset
+}
+
+func (p *TreeNodeData) fastWriteField4(buf []byte, w thrift.NocopyWriter) int {
 	offset := 0
 	offset += thrift.Binary.WriteFieldBegin(buf[offset:], thrift.I32, 4)
 	offset += thrift.Binary.WriteI32(buf[offset:], p.Sort)
 	return offset
 }
 
-func (p *Dropdown) fastWriteField5(buf []byte, w thrift.NocopyWriter) int {
+func (p *TreeNodeData) fastWriteField5(buf []byte, w thrift.NocopyWriter) int {
 	offset := 0
 	offset += thrift.Binary.WriteFieldBegin(buf[offset:], thrift.LIST, 5)
 	listBeginOffset := offset
@@ -1900,35 +1900,35 @@ func (p *Dropdown) fastWriteField5(buf []byte, w thrift.NocopyWriter) int {
 	return offset
 }
 
-func (p *Dropdown) field1Length() int {
+func (p *TreeNodeData) field1Length() int {
 	l := 0
 	l += thrift.Binary.FieldBeginLength()
 	l += thrift.Binary.I64Length()
 	return l
 }
 
-func (p *Dropdown) field2Length() int {
-	l := 0
-	l += thrift.Binary.FieldBeginLength()
-	l += thrift.Binary.I64Length()
-	return l
-}
-
-func (p *Dropdown) field3Length() int {
+func (p *TreeNodeData) field2Length() int {
 	l := 0
 	l += thrift.Binary.FieldBeginLength()
 	l += thrift.Binary.StringLengthNocopy(p.Title)
 	return l
 }
 
-func (p *Dropdown) field4Length() int {
+func (p *TreeNodeData) field3Length() int {
+	l := 0
+	l += thrift.Binary.FieldBeginLength()
+	l += thrift.Binary.I64Length()
+	return l
+}
+
+func (p *TreeNodeData) field4Length() int {
 	l := 0
 	l += thrift.Binary.FieldBeginLength()
 	l += thrift.Binary.I32Length()
 	return l
 }
 
-func (p *Dropdown) field5Length() int {
+func (p *TreeNodeData) field5Length() int {
 	l := 0
 	l += thrift.Binary.FieldBeginLength()
 	l += thrift.Binary.ListBeginLength()
