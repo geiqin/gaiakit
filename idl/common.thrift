@@ -50,3 +50,11 @@ struct TreeNodeData {
     4: i32 sort, //排序
     5: list<TreeNodeData> children,
 }
+
+/** 键值对类型 */
+struct LabelValueState {
+    1: i64 value,
+    2: string label,
+    3: bool disabled,
+    4: optional string extra,
+}

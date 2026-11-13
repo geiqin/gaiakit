@@ -428,3 +428,68 @@ var fieldIDToName_TreeNodeData = map[int16]string{
 	4: "sort",
 	5: "children",
 }
+
+type LabelValueState struct {
+	Value    int64   `thrift:"value,1" frugal:"1,default,i64" json:"value"`
+	Label    string  `thrift:"label,2" frugal:"2,default,string" json:"label"`
+	Disabled bool    `thrift:"disabled,3" frugal:"3,default,bool" json:"disabled"`
+	Extra    *string `thrift:"extra,4,optional" frugal:"4,optional,string" json:"extra,omitempty"`
+}
+
+func NewLabelValueState() *LabelValueState {
+	return &LabelValueState{}
+}
+
+func (p *LabelValueState) InitDefault() {
+}
+
+func (p *LabelValueState) GetValue() (v int64) {
+	return p.Value
+}
+
+func (p *LabelValueState) GetLabel() (v string) {
+	return p.Label
+}
+
+func (p *LabelValueState) GetDisabled() (v bool) {
+	return p.Disabled
+}
+
+var LabelValueState_Extra_DEFAULT string
+
+func (p *LabelValueState) GetExtra() (v string) {
+	if !p.IsSetExtra() {
+		return LabelValueState_Extra_DEFAULT
+	}
+	return *p.Extra
+}
+func (p *LabelValueState) SetValue(val int64) {
+	p.Value = val
+}
+func (p *LabelValueState) SetLabel(val string) {
+	p.Label = val
+}
+func (p *LabelValueState) SetDisabled(val bool) {
+	p.Disabled = val
+}
+func (p *LabelValueState) SetExtra(val *string) {
+	p.Extra = val
+}
+
+func (p *LabelValueState) IsSetExtra() bool {
+	return p.Extra != nil
+}
+
+func (p *LabelValueState) String() string {
+	if p == nil {
+		return "<nil>"
+	}
+	return fmt.Sprintf("LabelValueState(%+v)", *p)
+}
+
+var fieldIDToName_LabelValueState = map[int16]string{
+	1: "value",
+	2: "label",
+	3: "disabled",
+	4: "extra",
+}
