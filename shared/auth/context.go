@@ -85,8 +85,8 @@ func IsMember(ctx context.Context) bool {
 }
 
 func IsBackend(ctx context.Context) bool {
-	val, _ := metainfo.GetValue(ctx, consts.BackendFlag)
-	if val == "1" {
+	val, _ := metainfo.GetValue(ctx, consts.AccountType)
+	if val == consts.StoreUser {
 		return true
 	}
 	return false

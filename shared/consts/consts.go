@@ -16,7 +16,6 @@ const (
 	AccountType   = "accountType"
 	HeaderStoreId = "X-Store-Id"
 	ID            = "id"
-	BackendFlag   = "backend_flag"
 
 	HlogFilePath = "./tmp/hlog/logs/"
 	KlogFilePath = "./tmp/klog/logs/"
