@@ -84,6 +84,14 @@ func IsMember(ctx context.Context) bool {
 	return false
 }
 
+func IsBackend(ctx context.Context) bool {
+	val, _ := metainfo.GetValue(ctx, consts.BackendFlag)
+	if val == "1" {
+		return true
+	}
+	return false
+}
+
 func GetDbName(storeId int64) string {
 	flag := fmt.Sprintf("%08d", storeId)
 	if storeId == 1 {
