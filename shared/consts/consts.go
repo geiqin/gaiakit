@@ -16,6 +16,7 @@ const (
 	AccountType   = "accountType"
 	HeaderStoreId = "X-Store-Id"
 	ID            = "id"
+	IsAnonymous   = "isAnonymous"
 
 	HlogFilePath = "./tmp/hlog/logs/"
 	KlogFilePath = "./tmp/klog/logs/"

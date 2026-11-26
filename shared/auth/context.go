@@ -84,9 +84,9 @@ func IsMember(ctx context.Context) bool {
 	return false
 }
 
-func IsBackend(ctx context.Context) bool {
-	val, _ := metainfo.GetValue(ctx, consts.AccountType)
-	if val == consts.StoreUser {
+func IsAnonymous(ctx context.Context) bool {
+	val, _ := metainfo.GetValue(ctx, consts.IsAnonymous)
+	if val == "1" {
 		return true
 	}
 	return false
